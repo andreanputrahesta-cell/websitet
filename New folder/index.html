@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Toko Online - Andrean Putra Hesta</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Toko<span>Keren</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-lang="nav-home">Beranda</a></li>
+                    <li><a href="#produk" data-lang="nav-products">Produk</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="lang-switch">
+                    <span onclick="switchLanguage('id')" id="lang-id" class="lang-btn active">ID</span> | 
+                    <span onclick="switchLanguage('en')" id="lang-en" class="lang-btn">EN</span>
+                </div>
+                
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                
+                <button class="btn-admin" id="adminBtn" onclick="openLoginModal()">
+                    <i class="fas fa-lock"></i> Admin
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 data-lang="hero-title">Koleksi Gadget & Aksesoris Terbaru</h2>
+            <p data-lang="hero-desc">Temukan produk impianmu dengan harga terbaik dan kualitas terjamin.</p>
+            <a href="#produk" class="btn-cta" data-lang="hero-btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <section id="produk" class="products-section">
+            <h2 class="section-title" data-lang="prod-title">Produk Unggulan</h2>
+            <div class="products-grid" id="productsGrid">
+                </div>
+        </section>
+
+        <div class="login-modal" id="loginModal">
+            <div class="login-content">
+                <i class="fas fa-times close-login" onclick="closeLoginModal()"></i>
+                <h3>Login Admin</h3>
+                <p>Masukkan kata sandi untuk mengelola produk.</p>
+                <input type="password" id="inputSandi" placeholder="Masukkan sandi di sini...">
+                <button onclick="prosesLogin()" class="btn-submit">Masuk</button>
+            </div>
+        </div>
+
+        <section class="admin-panel" id="adminPanel" style="display: none;">
+            <div class="admin-header">
+                <h2 data-lang="admin-title">Panel Kontrol Admin</h2>
+                <button class="btn-logout" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+            <form id="productForm" class="admin-form">
+                <div class="form-group">
+                    <label data-lang="form-name">Nama Produk</label>
+                    <input type="text" id="prodName" placeholder="Contoh: Headphone Bluetooth" required>
+                </div>
+                <div class="form-group">
+                    <label data-lang="form-desc">Deskripsi Singkat</label>
+                    <input type="text" id="prodDesc" placeholder="Contoh: Suara jernih & ngebass" required>
+                </div>
+                <div class="form-group">
+                    <label data-lang="form-price">Harga (Rp)</label>
+                    <input type="number" id="prodPrice" placeholder="Contoh: 500000" required>
+                </div>
+                <div class="form-group">
+                    <label data-lang="form-img">URL Gambar</label>
+                    <input type="text" id="prodImg" placeholder="Link gambar (Unsplash/Imgur)" required>
+                </div>
+                <button type="submit" class="btn-submit" data-lang="form-submit">Tambah Produk Baru</button>
+            </form>
+        </section>
+
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3 data-lang="cart-title">Keranjang Saya</h3>
+                <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="total-price">
+                    <span data-lang="cart-total">Total:</span>
+                    <span id="totalAmount">Rp 0</span>
+                </div>
+                <button class="btn-checkout" onclick="checkout()" data-lang="cart-checkout">Pesan lewat WhatsApp</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Toko Keren. All Rights Reserved.</p>
+        <div class="credit">
+            <p data-lang="credit-text">Contoh website buatan <strong>Andrean Putra Hesta</strong> yang dibuat melalui kodingan HTML, CSS, dan JS.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
